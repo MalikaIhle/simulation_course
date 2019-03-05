@@ -9,3 +9,11 @@ Annotated R syntax file for Example 3: "bootstrapping.R"
 
 CSV dataset generated in Example 1, which is also used later in Example 2: "novel_question_output.csv"
 CSV dataset used in Example 3: "mediation_raw_data.csv"
+
+
+## Ihle 2019 - Winsor, Taylor, Ihle 2019 in prep
+
+Annotated R syntax file corresponding to a preregistered statistical model: "glm_Freq_vs_YN.R"
+This simulation assesses whether generalized inear model perform similarly  
+when based on a contingency table summarizing counts  
+vs a table with one line per record, and with the binomial variable (Yes/No) as the dependent variable
