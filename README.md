@@ -1,5 +1,9 @@
 # simulation_course
 
+## slides code
+
+Annotated R syntax file used to introduce simulations during the class on March 11 2019
+
 
 ## Hallgren 2014 Tutor Quant Methods Psychol. 2013 Oct 12;9(2):43-60.
 
