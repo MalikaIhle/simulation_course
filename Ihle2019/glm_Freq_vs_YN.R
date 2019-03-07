@@ -11,7 +11,7 @@
 
 
 # purpose
-#### we here want to see of running a glm on a contingency table of counts provides the same results 
+#### we here want to see if running a glm on a contingency table of counts provides the same results 
 #### as running a glm on the binomial variable (YN) 
 
 
@@ -31,7 +31,7 @@ probswhenexposed <- 0.5 # probability of attacking the bitter prey when trained 
 
 
 # data simulation
-# two-by-two design 
+# two-by-two factorial design - 'fixed' data structure
 FPriorExposure <- c(1,1,1,1,0,0,0,0)
 FColorGroup <- c('Green','Green','Beige','Beige','Green','Green','Beige','Beige') # the color that will contain DB, the other color will contain water
 TermiteEatenPalatability <- c('Water','DB','Water','DB','Water','DB','Water','DB') # in one test, either the DB termite or the water termite has to be attacked for the test to end

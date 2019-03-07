@@ -119,13 +119,13 @@ abline(v=1, col="red", lty=2, lwd=2)
 #~~~~~~~~~ Functions
 
 # writing a function
-    ## function syntax
+    ## function syntax:
     ## AwesomeFunctionName <- function(argument1, argument2,…){
     ## do stuff here
     ## }
 
 # your turn: write a function
-## that draws a histogram of n draws of mean(rnorm(100))
+## that draws a histogram of nrep draws of mean(rnorm(100))
 
 
 
@@ -142,16 +142,16 @@ abline(v=1, col="red", lty=2, lwd=2)
 
     ## step 1: the action
     mean(rnorm(100))
-    ## step 2: replicate the action 100 times
-    replicate(100, mean(rnorm(100)))
+    ## step 2: replicate the action 1000 times
+    replicate(1000, mean(rnorm(100)))
     ## step 3: plot the outcome of those simulations
-    hist(replicate(100, mean(rnorm(100))))
-    ## step 4: replicate the action n time, with n defined outside the function
-    nrep <- 100
+    hist(replicate(1000, mean(rnorm(100))))
+    ## step 4: replicate the action nrep time, with nrep defined outside the function
+    nrep <- 1000
     replicate(nrep, mean(rnorm(100)))
     ## step 5: wrap it in a function:
     histrnorm100 <- function (nrep){
-      hist(replicate(n, mean(rnorm(100))))
+      hist(replicate(nrep, mean(rnorm(100))))
     }
     ## step 6: check that the function works
     histrnorm100(9)
@@ -165,15 +165,22 @@ abline(v=1, col="red", lty=2, lwd=2)
 
 
 
+    
+    
+    
+    
+    
+    
+    
 
     
     
 
-    ## step 4: replicate the action n time, with n defined outside the function
+    ## step 4: define parameters outside the function
     nrep <- 100
     n <- 10
     replicate(nrep, mean(rnorm(n)))
-    ## step 5: wrap it in a function:
+    ## step 5: wrap the action in a function:
     histrnorm_n <- function (nrep, n){
       hist(replicate(n, mean(rnorm(n))))
     }
@@ -228,21 +235,21 @@ abline(v=1, col="red", lty=2, lwd=2)
     ## repeat function for n = 10 and for different nrep and plot
     par(mfrow=c(1,2))
     simTRep <- replicate(20, simT(10))
-    hist(simTRep, col="grey", breaks=21)
+    hist(simTRep, col="grey", breaks=21, main = "nrep=20, n=10", xlab="pvalue")
     abline(v=0.05, lwd=2, lty=2, col="red")
     
     simTRep2 <- replicate(100, simT(10))
-    hist(simTRep2, col="grey", breaks=21)
+    hist(simTRep2, col="grey", breaks=21, main = "nrep=100, n=10", xlab="pvalue")
     abline(v=0.05, lwd=2, lty=2, col="red")
     
     ## repeat function for nrep = 1000 and various n
     par(mfrow=c(1,2))
     simTRep <- replicate(1000, simT(10))
-    hist(simTRep, col="grey", breaks=21)
+    hist(simTRep, col="grey", breaks=21, main = "nrep=1000, n=10", xlab="pvalue")
     abline(v=0.05, lwd=2, lty=2, col="red")
     
     simTRep2 <- replicate(1000, simT(100))
-    hist(simTRep2, col="grey", breaks=21)
+    hist(simTRep2, col="grey", breaks=21, main = "nrep=1000, n=100", xlab="pvalue")
     abline(v=0.05, lwd=2, lty=2, col="red")
 
 
@@ -275,15 +282,23 @@ hist(rpois(100,3))
     
     ## repeat function for n = 10 and for different nrep and plot
     par(mfrow=c(1,2))
-    hist(replicate(20, simTpoiss(10)))
+    hist(replicate(20, simTpoiss(10)), main="n=10, nrep = 20", xlab ='pvalue', col="grey")
     abline(v=0.05, lwd=2, lty=2, col="red")
-    hist(replicate(100, simTpoiss(10)))
+    hist(replicate(100, simTpoiss(10)), main="n=10, nrep =100", xlab ='pvalue', col="grey")
     abline(v=0.05, lwd=2, lty=2, col="red")
     
     
     ## repeat function for nrep = 1000 and various n
     par(mfrow=c(1,2))
-    hist(replicate(1000, simTpoiss(10)))
+    hist(replicate(1000, simTpoiss(10)), main="nrep = 1000, n=10", xlab ='pvalue', col="grey")
     abline(v=0.05, lwd=2, lty=2, col="red")
-    hist(replicate(1000, simTpoiss(100)))
+    hist(replicate(1000, simTpoiss(100)), main="nrep = 1000, n=100", xlab ='pvalue', col="grey")
     abline(v=0.05, lwd=2, lty=2, col="red")
+    
+    
+    
+    
+    
+    
+    
+
