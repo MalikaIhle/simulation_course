@@ -1,5 +1,9 @@
 # simulation_course
 
+## slides
+
+presentation slides .pptx
+
 ## slides code
 
 Annotated R syntax file used to introduce simulations during the class on March 11 2019
@@ -15,7 +19,7 @@ CSV dataset generated in Example 1, which is also used later in Example 2: "nove
 CSV dataset used in Example 3: "mediation_raw_data.csv"
 
 
-## Ihle 2019 - Winsor, Taylor, Ihle 2019 in prep
+## Ihle 2019 - Winsor, Taylor in prep
 
 Annotated R syntax file corresponding to a preregistered statistical model: "glm_Freq_vs_YN.R"
 This simulation assesses whether generalized inear model perform similarly  
