@@ -282,23 +282,27 @@ hist(rpois(100,3))
     
     ## repeat function for n = 10 and for different nrep and plot
     par(mfrow=c(1,2))
-    hist(replicate(20, simTpoiss(10)), main="n=10, nrep = 20", xlab ='pvalue', col="grey")
+    hist(replicate(20, simTpoiss(10)), breaks =21,main="n=10, nrep = 20", xlab ='pvalue', col="grey")
     abline(v=0.05, lwd=2, lty=2, col="red")
-    hist(replicate(100, simTpoiss(10)), main="n=10, nrep =100", xlab ='pvalue', col="grey")
+    hist(replicate(100, simTpoiss(10)), breaks =21,main="n=10, nrep =100", xlab ='pvalue', col="grey")
     abline(v=0.05, lwd=2, lty=2, col="red")
     
     
     ## repeat function for nrep = 1000 and various n
     par(mfrow=c(1,2))
-    hist(replicate(1000, simTpoiss(10)), main="nrep = 1000, n=10", xlab ='pvalue', col="grey")
+    hist(replicate(1000, simTpoiss(10)), breaks =21, main="nrep = 1000, n=10", xlab ='pvalue', col="grey")
     abline(v=0.05, lwd=2, lty=2, col="red")
-    hist(replicate(1000, simTpoiss(100)), main="nrep = 1000, n=100", xlab ='pvalue', col="grey")
+    hist(replicate(1000, simTpoiss(100)), breaks =21,main="nrep = 1000, n=100", xlab ='pvalue', col="grey")
+    abline(v=0.05, lwd=2, lty=2, col="red")
+    
+    ## repeat function for nrep = 1000 and various n
+    par(mfrow=c(1,2))
+    hist(replicate(1000, simTpoiss(10)), breaks =21, main="nrep = 1000, n=10", xlab ='pvalue', col="grey")
+    abline(v=0.05, lwd=2, lty=2, col="red")
+    hist(replicate(1000, simTpoiss(100)), breaks =21,main="nrep = 1000, n=100", xlab ='pvalue', col="grey")
     abline(v=0.05, lwd=2, lty=2, col="red")
     
     
-    
-    
-    
-    
+   
     
 
