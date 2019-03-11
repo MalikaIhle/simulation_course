@@ -23,14 +23,13 @@ library(pbapply) # to replicate a function / a simulation multiple time with a b
 
 
 
-# parameters
+# 1. parameters & 5. try different parameter values
 nF <- 100 # number of females to be tested
 pbrep <- 1000 # number of simulation replicates
 probsnaive <- 0.5 # probability of attacking the bitter prey when never exposed to the bitter compound - needs to be 0.25 to always detect the effect
 probswhenexposed <- 0.5 # probability of attacking the bitter prey when trained on the bitter compound - needs to be 0.05 to always detect the interaciton (if previous is 0.25)
 
 
-# data simulation
 # two-by-two factorial design - 'fixed' data structure
 FPriorExposure <- c(1,1,1,1,0,0,0,0)
 FColorGroup <- c('Green','Green','Beige','Beige','Green','Green','Beige','Beige') # the color that will contain DB, the other color will contain water
@@ -40,7 +39,7 @@ TermiteEatenColor <- c('Beige','Green','Green','Beige','Beige','Green','Green','
 
 
 
-# simulation of an effect of the bitter compound (say smell) onto that attack, 
+# 2. simulation of an effect of the bitter compound (say smell) onto that attack, 
 # if the termite has the bitter compound, prob of attack is = probs defined in parameters
 
 
@@ -105,7 +104,7 @@ Simulate_and_analyse <-function(){  # DO NOT RUN IF WANT TO CREATE ONE EXAMPLE T
   
   
   
-  ## Poisson Model on contingency table
+  ## 3. run statistical test: Poisson Model on contingency table
   modFreq0 <- glm(Freq ~ TermiteEatenColor+TermiteEatenPalatability+FPriorExposure, family = 'poisson', data = FreqTable)
   modFreq1 <- glm(Freq ~ TermiteEatenColor+TermiteEatenPalatability*FPriorExposure, family = 'poisson', data = FreqTable)
   summary(modFreq1)
@@ -114,7 +113,7 @@ Simulate_and_analyse <-function(){  # DO NOT RUN IF WANT TO CREATE ONE EXAMPLE T
   
 
   
-  ## Binomial model on 'long table'
+  ## 3. run statistical test: Binomial model on 'long table'
       ####should be named: glm (FocalTermiteAttackedYN ~ FocalTermiteColor+FocalTermitePalatability*FPriorExposure 
       ####but keep name similar as above to combine them more easily
   modBinom <- glm (AttackedYN ~ TermiteEatenColor +TermiteEatenPalatability*FPriorExposure, family = 'binomial', data = FocalAttackTable)
@@ -123,7 +122,7 @@ Simulate_and_analyse <-function(){  # DO NOT RUN IF WANT TO CREATE ONE EXAMPLE T
 
   
   
-  ## to extract p value
+  ## 3. save parameter estimates for each iteration: extract p value
   modFreq1p <-  coef(summary(modFreq1))[-1, 4]
   modBinomp <- coef(summary(modBinom))[-1, 4]
   
@@ -143,6 +142,7 @@ OutputSimulation <- OutputSimulation<0.05 # determine whether or not their are s
 OutputSimulationFreq <- OutputSimulation[rownames(OutputSimulation) == "modFreq1p",]
 OutputSimulationBinom <- OutputSimulation[rownames(OutputSimulation) == "modBinomp",]
 
+# analyse and interpret the results of simulations
 ## factors where no effect was simulated should have a percentage of false positive effect under 5%
 ## factors with simulated effect should detect an effect in at least more than 5% of the cases
 data.frame(colSums(OutputSimulationFreq)/pbrep) # count the number of significant p values out of the number of simulation replicate. 
