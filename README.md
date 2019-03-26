@@ -25,3 +25,11 @@ Annotated R syntax file corresponding to a preregistered statistical model: "glm
 This simulation assesses whether generalized inear model perform similarly  
 when based on a contingency table summarizing counts  
 vs a table with one line per record, and with the binomial variable (Yes/No) as the dependent variable
+
+
+## Johnson 2014
+
+Power analysis for generalized linear mixed models in ecology and evolution  
+https://doi.org/10.1111/2041-210X.12306  
+
+
